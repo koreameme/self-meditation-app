@@ -14,16 +14,42 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const [diaries, setDiaries] = useState(() => {
+    const saved = localStorage.getItem('diaries');
+    return saved ? JSON.parse(saved) : {};
+  });
+
   const [showEmergencyButton, setShowEmergencyButton] = useState(true);
 
   useEffect(() => {
     localStorage.setItem('completedDays', JSON.stringify(completedDays));
   }, [completedDays]);
 
+  useEffect(() => {
+    localStorage.setItem('diaries', JSON.stringify(diaries));
+  }, [diaries]);
+
   const completeDay = (weekNumber, dayNumber) => {
     const dayId = `${weekNumber}-${dayNumber}`;
     if (!completedDays.includes(dayId)) {
       setCompletedDays([...completedDays, dayId]);
+    }
+  };
+
+  const saveDiary = (dayId, entry) => {
+    setDiaries(prev => ({
+      ...prev,
+      [dayId]: entry
+    }));
+  };
+
+  const resetProgress = () => {
+    if (window.confirm('모든 수련 기록과 일기를 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+      setCompletedDays([]);
+      setDiaries({});
+      localStorage.removeItem('completedDays');
+      localStorage.removeItem('diaries');
+      alert('모든 데이터가 초기화되었습니다.');
     }
   };
 
@@ -73,9 +99,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/training" element={<Training completedDays={completedDays} />} />
-            <Route path="/practice" element={<Practice completeDay={completeDay} completedDays={completedDays} />} />
+            <Route path="/practice" element={<Practice completeDay={completeDay} completedDays={completedDays} diaries={diaries} saveDiary={saveDiary} />} />
             <Route path="/emergency" element={<Emergency />} />
-            <Route path="/progress" element={<Progress completedDays={completedDays} />} />
+            <Route path="/progress" element={<Progress completedDays={completedDays} diaries={diaries} saveDiary={saveDiary} resetProgress={resetProgress} />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </div>

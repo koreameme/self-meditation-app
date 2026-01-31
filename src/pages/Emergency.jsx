@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { meditations } from '../data/meditations';
 
@@ -7,8 +7,39 @@ function Emergency() {
     const [currentStep, setCurrentStep] = useState(0);
     const [elapsedTime, setElapsedTime] = useState(0);
     const [breathPhase, setBreathPhase] = useState('inhale'); // inhale, hold, exhale
+    const bellAudio = useRef(null);
+
+    useEffect(() => {
+        // High-quality professional meditation bell with clean resonance
+        bellAudio.current = new Audio('https://indiemusicbox.s3.amazonaws.com/downloads/meditation-bell-pack/Meditation+Bell+2.mp3');
+        bellAudio.current.loop = true;
+        bellAudio.current.volume = 0.8;
+        bellAudio.current.load();
+        bellAudio.current.volume = 0.8;
+        bellAudio.current.load();
+
+        return () => {
+            if (bellAudio.current) {
+                bellAudio.current.pause();
+                bellAudio.current = null;
+            }
+        };
+    }, []);
 
     const emergency = meditations.emergencyCalm;
+
+    const playBell = () => {
+        if (bellAudio.current) {
+            bellAudio.current.play().catch(e => console.log("Audio play failed:", e));
+        }
+    };
+
+    const stopBell = () => {
+        if (bellAudio.current) {
+            bellAudio.current.pause();
+            bellAudio.current.currentTime = 0;
+        }
+    };
 
     useEffect(() => {
         if (!isActive) return;
@@ -42,18 +73,26 @@ function Emergency() {
         } else {
             setBreathPhase('exhale');
         }
+
+        // Completion check
+        if (elapsedTime >= emergency.duration * 60 && isActive) {
+            stopBell();
+            setIsActive(false);
+        }
     }, [elapsedTime, isActive]);
 
     const startEmergency = () => {
         setIsActive(true);
         setElapsedTime(0);
         setCurrentStep(0);
+        playBell();
     };
 
     const stopEmergency = () => {
         setIsActive(false);
         setElapsedTime(0);
         setCurrentStep(0);
+        stopBell();
     };
 
     const getBreathColor = () => {

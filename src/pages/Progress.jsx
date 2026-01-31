@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { calculateProgress } from '../data/curriculum';
 
-function Progress({ completedDays }) {
+function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
     const totalProgress = calculateProgress(completedDays.length);
     const streak = calculateStreak(completedDays);
     const weeklyStats = getWeeklyStats(completedDays);
@@ -131,7 +132,7 @@ function Progress({ completedDays }) {
                         {/* Achievements */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)' }}
+                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-2xl)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
@@ -177,6 +178,61 @@ function Progress({ completedDays }) {
                             </div>
                         </motion.div>
 
+                        {/* Diary History Section */}
+                        <motion.div
+                            className="glass"
+                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-2xl)' }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                        >
+                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>📝 나의 수련 일기 기록</h2>
+                            {Object.keys(diaries).length === 0 ? (
+                                <p style={{ color: 'var(--color-text-muted)', textAlign: 'center', padding: 'var(--spacing-xl)' }}>
+                                    아직 작성된 일기가 없습니다. 오늘의 실천을 완료하고 첫 일기를 써보세요!
+                                </p>
+                            ) : (
+                                <div style={{ display: 'grid', gap: 'var(--spacing-lg)' }}>
+                                    {Object.entries(diaries)
+                                        .sort((a, b) => {
+                                            const [wA, dA] = a[0].split('-').map(Number);
+                                            const [wB, dB] = b[0].split('-').map(Number);
+                                            return b[0].localeCompare(a[0], undefined, { numeric: true, sensitivity: 'base' });
+                                        })
+                                        .map(([dayId, entry]) => (
+                                            <DiaryEntryCard
+                                                key={dayId}
+                                                dayId={dayId}
+                                                entry={entry}
+                                                onSave={(newEntry) => saveDiary(dayId, newEntry)}
+                                            />
+                                        ))
+                                    }
+                                </div>
+                            )}
+                        </motion.div>
+
+                        {/* Settings / Reset Section */}
+                        <motion.div
+                            className="glass"
+                            style={{ padding: 'var(--spacing-xl)', border: '1px solid rgba(255, 59, 48, 0.2)' }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                        >
+                            <h3 style={{ color: '#ff3b30', marginBottom: 'var(--spacing-md)' }}>⚠️ 데이터 관리</h3>
+                            <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-lg)' }}>
+                                모든 수련 데이터와 일기 기록을 영구적으로 삭제하고 초기화합니다.
+                            </p>
+                            <button
+                                className="btn-outline"
+                                onClick={resetProgress}
+                                style={{ color: '#ff3b30', borderColor: '#ff3b30' }}
+                            >
+                                전체 기록 초기화하기
+                            </button>
+                        </motion.div>
+
                         {/* Encouragement Message */}
                         {completedDays.length > 0 && completedDays.length < 84 && (
                             <motion.div
@@ -215,10 +271,82 @@ function AchievementBadge({ icon, title, description, unlocked }) {
     );
 }
 
+function DiaryEntryCard({ dayId, entry, onSave }) {
+    const [isEditing, setIsEditing] = useState(false);
+    const [editEntry, setEditEntry] = useState(entry);
+    const [week, day] = dayId.split('-');
+
+    const handleSave = () => {
+        onSave(editEntry);
+        setIsEditing(false);
+    };
+
+    return (
+        <div className="glass-strong" style={{ padding: 'var(--spacing-lg)', position: 'relative' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-md)' }}>
+                <h4 style={{ color: 'var(--color-primary)', margin: 0 }}>Week {week}, Day {day} 수련 일기</h4>
+                {!isEditing && (
+                    <button className="btn-outline" style={{ padding: '4px 12px', fontSize: 'var(--font-size-xs)' }} onClick={() => setIsEditing(true)}>
+                        수정하기
+                    </button>
+                )}
+            </div>
+
+            {isEditing ? (
+                <div style={{ display: 'grid', gap: 'var(--spacing-sm)' }}>
+                    <div>
+                        <label style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>Plan (계획)</label>
+                        <textarea
+                            value={editEntry.plan}
+                            onChange={(e) => setEditEntry({ ...editEntry, plan: e.target.value })}
+                            style={editStyles}
+                        />
+                    </div>
+                    <div>
+                        <label style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>Do (실행)</label>
+                        <textarea
+                            value={editEntry.do}
+                            onChange={(e) => setEditEntry({ ...editEntry, do: e.target.value })}
+                            style={editStyles}
+                        />
+                    </div>
+                    <div>
+                        <label style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>See (성찰)</label>
+                        <textarea
+                            value={editEntry.see}
+                            onChange={(e) => setEditEntry({ ...editEntry, see: e.target.value })}
+                            style={editStyles}
+                        />
+                    </div>
+                    <div style={{ display: 'flex', gap: 'var(--spacing-sm)', marginTop: 'var(--spacing-sm)' }}>
+                        <button className="btn-primary" style={{ padding: '6px 16px', fontSize: 'var(--font-size-sm)' }} onClick={handleSave}>저장</button>
+                        <button className="btn-outline" style={{ padding: '6px 16px', fontSize: 'var(--font-size-sm)' }} onClick={() => { setIsEditing(false); setEditEntry(entry); }}>취소</button>
+                    </div>
+                </div>
+            ) : (
+                <div style={{ display: 'grid', gap: 'var(--spacing-sm)' }}>
+                    <p style={{ margin: 0, fontSize: 'var(--font-size-sm)' }}><strong>Plan:</strong> {entry.plan || '-'}</p>
+                    <p style={{ margin: 0, fontSize: 'var(--font-size-sm)' }}><strong>Do:</strong> {entry.do || '-'}</p>
+                    <p style={{ margin: 0, fontSize: 'var(--font-size-sm)' }}><strong>See:</strong> {entry.see || '-'}</p>
+                </div>
+            )}
+        </div>
+    );
+}
+
+const editStyles = {
+    width: '100%',
+    padding: '8px',
+    background: 'rgba(255,255,255,0.05)',
+    border: '1px solid rgba(255,255,255,0.1)',
+    borderRadius: '4px',
+    color: 'white',
+    fontSize: 'var(--font-size-sm)',
+    minHeight: '60px'
+};
+
 function calculateStreak(completedDays) {
     if (completedDays.length === 0) return 0;
-
-    // Simple streak calculation (can be improved)
     return completedDays.length >= 7 ? 7 : completedDays.length;
 }
 
