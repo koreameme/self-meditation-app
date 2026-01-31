@@ -16,7 +16,7 @@ export const curriculum = [
                 duration: 10,
                 type: "교육",
                 content: "편도체(감정 중추)와 mPFC(이성 중추)의 역할 학습",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 2,
@@ -24,7 +24,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "몸의 긴장 부위를 관찰하고 인식하기",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 3,
@@ -32,7 +32,7 @@ export const curriculum = [
                 duration: 10,
                 type: "신체",
                 content: "꼬리뼈부터 정수리까지 일직선 유지하기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 4,
@@ -40,7 +40,7 @@ export const curriculum = [
                 duration: 10,
                 type: "신체",
                 content: "교근(masseter) 힘 빼기 연습",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 5,
@@ -48,7 +48,7 @@ export const curriculum = [
                 duration: 10,
                 type: "신체",
                 content: "승모근(trapezius) 이완 기법",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 6,
@@ -56,7 +56,7 @@ export const curriculum = [
                 duration: 10,
                 type: "신체",
                 content: "눈 주변 근육 이완으로 뇌신경 안정화",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 7,
@@ -64,7 +64,7 @@ export const curriculum = [
                 duration: 15,
                 type: "복습",
                 content: "이번 주 경험 정리 및 Plan-Do-See 다이어리",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "MEEhwqK1fws"
             }
         ],
         unlocked: true
@@ -148,7 +148,7 @@ export const curriculum = [
                 duration: 10,
                 type: "호흡",
                 content: "4초 들이쉬기, 7초 멈추기, 8초 내쉬기",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 2,
@@ -156,7 +156,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "현재 순간에 온전히 머물기",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "R6u_D2-wN3E"
             },
             {
                 day: 3,
@@ -164,7 +164,7 @@ export const curriculum = [
                 duration: 10,
                 type: "호흡",
                 content: "횡격막을 이용한 깊은 호흡",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 4,
@@ -172,7 +172,7 @@ export const curriculum = [
                 duration: 10,
                 type: "호흡",
                 content: "분노/불안 시 호흡으로 진정하기",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 5,
@@ -180,7 +180,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "걷기, 먹기 등 일상 활동에 집중",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "R6u_D2-wN3E"
             },
             {
                 day: 6,
@@ -188,7 +188,7 @@ export const curriculum = [
                 duration: 10,
                 type: "호흡",
                 content: "위기 상황 대응 호흡법",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "2wK_1uK_09M"
             },
             {
                 day: 7,
@@ -196,7 +196,7 @@ export const curriculum = [
                 duration: 15,
                 type: "복습",
                 content: "호흡 훈련 효과 기록",
-                youtubeId: "GIVfWyqOOKk"
+                youtubeId: "MEEhwqK1fws"
             }
         ],
         unlocked: false
@@ -274,7 +274,7 @@ export const curriculum = [
         phase: "대인 관계력",
         title: "자기 연민 (Self-Compassion)",
         subtitle: "나를 베스트 프렌드처럼 대하기",
-        description: "자신의 실패와 약점을 비난하지 않고, 친구를 대하듯 따뜻하게 받아들이는 연습을 합니다.",
+        description: "자신의 실패 and 약점을 비난하지 않고, 친구를 대하듯 따뜻하게 받아들이는 연습을 합니다.",
         practices: [
             {
                 day: 1,
@@ -282,7 +282,7 @@ export const curriculum = [
                 duration: 10,
                 type: "교육",
                 content: "자기 연민 vs 자기 비난의 차이",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "iJ8j_N-W608"
             },
             {
                 day: 2,
@@ -290,7 +290,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "나에게 친구처럼 말 걸기",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "iJ8j_N-W608"
             },
             {
                 day: 3,
@@ -298,7 +298,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "실수를 성장의 기회로 보기",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "iJ8j_N-W608"
             },
             {
                 day: 4,
@@ -306,7 +306,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "힘든 순간 스스로를 위로하기",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "iJ8j_N-W608"
             },
             {
                 day: 5,
@@ -314,7 +314,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "있는 그대로의 나 인정하기",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "iJ8j_N-W608"
             },
             {
                 day: 6,
@@ -322,7 +322,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "'나는 행복하기를, 평화롭기를' 기원",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "iJ8j_N-W608"
             },
             {
                 day: 7,
@@ -330,7 +330,7 @@ export const curriculum = [
                 duration: 15,
                 type: "복습",
                 content: "자기 연민 실천 사례 기록",
-                youtubeId: "GBaTlirnMLw"
+                youtubeId: "MEEhwqK1fws"
             }
         ],
         unlocked: false
@@ -480,7 +480,7 @@ export const curriculum = [
                 duration: 10,
                 type: "교육",
                 content: "용서는 나를 자유롭게 하는 것",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             },
             {
                 day: 2,
@@ -488,7 +488,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "아픔을 있는 그대로 받아들이기",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             },
             {
                 day: 3,
@@ -496,7 +496,7 @@ export const curriculum = [
                 duration: 15,
                 type: "일기",
                 content: "용서하고 싶은 사람에게 편지 (보내지 않음)",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             },
             {
                 day: 4,
@@ -504,7 +504,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "과거의 나를 용서하기",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             },
             {
                 day: 5,
@@ -512,7 +512,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "분노와 원망을 흘려보내기",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             },
             {
                 day: 6,
@@ -520,7 +520,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "상처를 통해 배운 것에 감사하기",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             },
             {
                 day: 7,
@@ -528,7 +528,7 @@ export const curriculum = [
                 duration: 20,
                 type: "복습",
                 content: "대인 관계력 향상 점검 및 축하",
-                youtubeId: "HO8OaZaSW6d"
+                youtubeId: "yK00aE8v7-Y"
             }
         ],
         unlocked: false
@@ -614,7 +614,7 @@ export const curriculum = [
                 duration: 10,
                 type: "교육",
                 content: "뇌는 평생 변화한다는 과학적 사실",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             },
             {
                 day: 2,
@@ -622,7 +622,7 @@ export const curriculum = [
                 duration: 10,
                 type: "교육",
                 content: "두 마인드셋의 차이 이해",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             },
             {
                 day: 3,
@@ -630,7 +630,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "결과보다 과정에 집중하기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             },
             {
                 day: 4,
@@ -638,7 +638,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "어려운 과제를 배움의 기회로 보기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             },
             {
                 day: 5,
@@ -646,7 +646,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "타인이 아닌 과거의 나와 비교하기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             },
             {
                 day: 6,
@@ -654,7 +654,7 @@ export const curriculum = [
                 duration: 10,
                 type: "일기",
                 content: "오늘 배우고 성장한 점 기록",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             },
             {
                 day: 7,
@@ -662,7 +662,7 @@ export const curriculum = [
                 duration: 15,
                 type: "복습",
                 content: "성장 마인드셋 실천 사례",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "gN6fV90F3ys"
             }
         ],
         unlocked: false
@@ -680,7 +680,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "내게 중요한 가치 5가지 찾기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "L0qg5T3J8n0"
             },
             {
                 day: 2,
@@ -688,7 +688,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "5년 후 이상적인 내 모습 그리기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "L0qg5T3J8n0"
             },
             {
                 day: 3,
@@ -696,7 +696,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "나를 살아있게 하는 것들 발견",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "L0qg5T3J8n0"
             },
             {
                 day: 4,
@@ -704,7 +704,7 @@ export const curriculum = [
                 duration: 15,
                 type: "일기",
                 content: "내 삶의 목적을 한 문장으로 쓰기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "L0qg5T3J8n0"
             },
             {
                 day: 5,
@@ -712,7 +712,7 @@ export const curriculum = [
                 duration: 10,
                 type: "실천",
                 content: "목적에 맞는 작은 행동 하기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "L0qg5T3J8n0"
             },
             {
                 day: 6,
@@ -720,7 +720,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "지금 가진 것에 감사하기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "L0qg5T3J8n0"
             },
             {
                 day: 7,
@@ -728,7 +728,7 @@ export const curriculum = [
                 duration: 15,
                 type: "복습",
                 content: "목적 실천 경험 나누기",
-                youtubeId: "FmD1lGgH-R8"
+                youtubeId: "MEEhwqK1fws"
             }
         ],
         unlocked: false
@@ -746,7 +746,7 @@ export const curriculum = [
                 duration: 15,
                 type: "복습",
                 content: "처음과 지금의 나 비교하기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 2,
@@ -754,7 +754,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "성장한 나를 축하하고 격려하기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 3,
@@ -762,7 +762,7 @@ export const curriculum = [
                 duration: 10,
                 type: "계획",
                 content: "계속할 3가지 핵심 습관 정하기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 4,
@@ -770,7 +770,7 @@ export const curriculum = [
                 duration: 15,
                 type: "계획",
                 content: "다음 3개월 실천 계획 세우기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 5,
@@ -778,7 +778,7 @@ export const curriculum = [
                 duration: 15,
                 type: "일기",
                 content: "12주 전 나에게 감사 편지 쓰기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 6,
@@ -786,7 +786,7 @@ export const curriculum = [
                 duration: 10,
                 type: "명상",
                 content: "배운 것을 다른 이와 나누기",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             },
             {
                 day: 7,
@@ -794,7 +794,7 @@ export const curriculum = [
                 duration: 20,
                 type: "축하",
                 content: "12주 완주 축하 및 새로운 시작",
-                youtubeId: "Fl7I6KpYaxH"
+                youtubeId: "MEEhwqK1fws"
             }
         ],
         unlocked: false
