@@ -149,6 +149,24 @@ function Practice({ completeDay, completedDays }) {
 
                                 {/* Action Buttons */}
                                 <div style={{ display: 'flex', gap: 'var(--spacing-md)', flexWrap: 'wrap' }}>
+                                    {currentWeek?.youtubeId && (
+                                        <a
+                                            href={`https://www.youtube.com/watch?v=${currentWeek.youtubeId}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-secondary"
+                                            style={{
+                                                textDecoration: 'none',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.5rem',
+                                                background: '#FF0000',
+                                                color: 'white'
+                                            }}
+                                        >
+                                            📺 관련 영상 보기
+                                        </a>
+                                    )}
                                     {!isCompleted && (
                                         <>
                                             <button

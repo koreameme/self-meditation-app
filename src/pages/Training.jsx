@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { curriculum, calculateProgress } from '../data/curriculum';
 
@@ -11,12 +11,6 @@ function Training({ completedDays }) {
         // Check if previous week is completed (all 7 days)
         const previousWeekDays = completedDays.filter(day => day.startsWith(`${weekNumber - 1}-`));
         return previousWeekDays.length >= 7;
-    };
-
-    const handleWeekClick = (weekNumber) => {
-        if (isWeekUnlocked(weekNumber)) {
-            navigate('/practice', { state: { week: weekNumber } });
-        }
     };
 
     const getWeekProgress = (weekNumber) => {
@@ -74,13 +68,20 @@ function Training({ completedDays }) {
                             marginBottom: 'var(--spacing-2xl)'
                         }}>
                             {curriculum.slice(0, 4).map((week, index) => (
-                                <WeekCard
+                                <RouterLink
                                     key={week.week}
-                                    week={week}
-                                    isUnlocked={isWeekUnlocked(week.week)}
-                                    progress={getWeekProgress(week.week)}
-                                    delay={index * 0.1}
-                                />
+                                    to={isWeekUnlocked(week.week) ? "/practice" : "#"}
+                                    state={isWeekUnlocked(week.week) ? { week: week.week } : null}
+                                    style={{ textDecoration: 'none', color: 'inherit' }}
+                                    onClick={(e) => !isWeekUnlocked(week.week) && e.preventDefault()}
+                                >
+                                    <WeekCard
+                                        week={week}
+                                        isUnlocked={isWeekUnlocked(week.week)}
+                                        progress={getWeekProgress(week.week)}
+                                        delay={index * 0.1}
+                                    />
+                                </RouterLink>
                             ))}
                         </div>
                     </motion.div>
@@ -101,13 +102,20 @@ function Training({ completedDays }) {
                             marginBottom: 'var(--spacing-2xl)'
                         }}>
                             {curriculum.slice(4, 8).map((week, index) => (
-                                <WeekCard
+                                <RouterLink
                                     key={week.week}
-                                    week={week}
-                                    isUnlocked={isWeekUnlocked(week.week)}
-                                    progress={getWeekProgress(week.week)}
-                                    delay={index * 0.1}
-                                />
+                                    to={isWeekUnlocked(week.week) ? "/practice" : "#"}
+                                    state={isWeekUnlocked(week.week) ? { week: week.week } : null}
+                                    style={{ textDecoration: 'none', color: 'inherit' }}
+                                    onClick={(e) => !isWeekUnlocked(week.week) && e.preventDefault()}
+                                >
+                                    <WeekCard
+                                        week={week}
+                                        isUnlocked={isWeekUnlocked(week.week)}
+                                        progress={getWeekProgress(week.week)}
+                                        delay={index * 0.1}
+                                    />
+                                </RouterLink>
                             ))}
                         </div>
                     </motion.div>
@@ -127,14 +135,20 @@ function Training({ completedDays }) {
                             gap: 'var(--spacing-lg)'
                         }}>
                             {curriculum.slice(8, 12).map((week, index) => (
-                                <WeekCard
+                                <RouterLink
                                     key={week.week}
-                                    week={week}
-                                    isUnlocked={isWeekUnlocked(week.week)}
-                                    progress={getWeekProgress(week.week)}
-                                    onClick={() => handleWeekClick(week.week)}
-                                    delay={index * 0.1}
-                                />
+                                    to={isWeekUnlocked(week.week) ? "/practice" : "#"}
+                                    state={isWeekUnlocked(week.week) ? { week: week.week } : null}
+                                    style={{ textDecoration: 'none', color: 'inherit' }}
+                                    onClick={(e) => !isWeekUnlocked(week.week) && e.preventDefault()}
+                                >
+                                    <WeekCard
+                                        week={week}
+                                        isUnlocked={isWeekUnlocked(week.week)}
+                                        progress={getWeekProgress(week.week)}
+                                        delay={index * 0.1}
+                                    />
+                                </RouterLink>
                             ))}
                         </div>
                     </motion.div>
@@ -144,7 +158,7 @@ function Training({ completedDays }) {
     );
 }
 
-function WeekCard({ week, isUnlocked, progress, onClick, delay }) {
+function WeekCard({ week, isUnlocked, progress, delay }) {
     return (
         <motion.div
             className={`card ${!isUnlocked ? 'card-locked' : ''} ${progress > 0 && progress < 100 ? 'card-active' : ''}`}
@@ -153,7 +167,6 @@ function WeekCard({ week, isUnlocked, progress, onClick, delay }) {
             viewport={{ once: true }}
             transition={{ delay }}
             whileHover={isUnlocked ? { y: -10 } : {}}
-            onClick={onClick}
             style={{ position: 'relative', cursor: isUnlocked ? 'pointer' : 'not-allowed' }}
         >
             {/* Lock Icon */}

@@ -9,6 +9,7 @@ export const curriculum = [
         title: "편안전활 입문",
         subtitle: "뇌과학으로 이해하는 마음의 작동 원리",
         description: "편도체와 전전두피질의 관계를 이해하고, 기본적인 신체 이완 기법을 배웁니다.",
+        youtubeId: "FmD1lGgH-R8",
         practices: [
             {
                 day: 1,
@@ -68,6 +69,7 @@ export const curriculum = [
         title: "신체 자각력 강화",
         subtitle: "몸이 보내는 신호에 귀 기울이기",
         description: "신체 내부 감각을 섬세하게 관찰하는 '격관 명상'을 통해 편도체 활성화를 조기에 감지합니다.",
+        youtubeId: "ECNjHpy6ujH",
         practices: [
             {
                 day: 1,
@@ -127,6 +129,7 @@ export const curriculum = [
         title: "호흡 조절 (사띠)",
         subtitle: "편도체를 즉각 안정시키는 호흡법",
         description: "4-7-8 호흡법과 사띠(Sati) 명상으로 스트레스 상황에서 즉각적인 안정을 찾습니다.",
+        youtubeId: "GIVfWyqOOKk",
         practices: [
             {
                 day: 1,
@@ -186,6 +189,7 @@ export const curriculum = [
         title: "감정 관찰자 되기",
         subtitle: "감정에 휩쓸리지 않고 바라보기",
         description: "감정을 판단하지 않고 있는 그대로 관찰하는 연습으로 mPFC를 활성화합니다.",
+        youtubeId: "GBaTlirnMLw",
         practices: [
             {
                 day: 1,
@@ -247,6 +251,7 @@ export const curriculum = [
         title: "자기 연민 (Self-Compassion)",
         subtitle: "나를 베스트 프렌드처럼 대하기",
         description: "자신의 실패와 약점을 비난하지 않고, 친구를 대하듯 따뜻하게 받아들이는 연습을 합니다.",
+        youtubeId: "GBaTlirnMLw",
         practices: [
             {
                 day: 1,
@@ -306,6 +311,7 @@ export const curriculum = [
         title: "오렌지 나뭇가지 비유",
         subtitle: "타인의 비난으로부터 자유로워지기",
         description: "타인의 부정적 말을 '오렌지 나뭇가지'처럼 받지 않고 흘려보내는 지혜를 배웁니다.",
+        youtubeId: "HO8OaZaSW6d",
         practices: [
             {
                 day: 1,
@@ -365,6 +371,7 @@ export const curriculum = [
         title: "공감과 연민",
         subtitle: "타인의 고통을 이해하고 함께하기",
         description: "다른 사람의 감정을 이해하고 공감하는 능력을 키워 관계의 질을 높입니다.",
+        youtubeId: "HO8OaZaSW6d",
         practices: [
             {
                 day: 1,
@@ -424,6 +431,7 @@ export const curriculum = [
         title: "용서와 화해",
         subtitle: "과거의 상처에서 자유로워지기",
         description: "용서는 상대를 위한 것이 아닌 나를 위한 선물임을 깨닫고 실천합니다.",
+        youtubeId: "HO8OaZaSW6d",
         practices: [
             {
                 day: 1,
@@ -485,6 +493,7 @@ export const curriculum = [
         title: "회복탄력성 (Resilience)",
         subtitle: "역경을 성장의 기회로 전환하기",
         description: "유리공이 땅에 떨어져 더 높이 튀어오르듯, 어려움을 통해 더 강해지는 힘을 기릅니다.",
+        youtubeId: "FmD1lGgH-R8",
         practices: [
             {
                 day: 1,
@@ -544,6 +553,7 @@ export const curriculum = [
         title: "성장 마인드셋",
         subtitle: "고정된 능력이 아닌 성장 가능성 믿기",
         description: "뇌의 신경 가소성을 이해하고, 노력을 통해 변화할 수 있다는 믿음을 강화합니다.",
+        youtubeId: "FmD1lGgH-R8",
         practices: [
             {
                 day: 1,
@@ -603,6 +613,7 @@ export const curriculum = [
         title: "목적과 의미 찾기",
         subtitle: "내 삶의 방향성 명확히 하기",
         description: "진정으로 원하는 것이 무엇인지, 어떤 삶을 살고 싶은지 깊이 탐구합니다.",
+        youtubeId: "FmD1lGgH-R8",
         practices: [
             {
                 day: 1,
@@ -662,6 +673,7 @@ export const curriculum = [
         title: "통합과 지속",
         subtitle: "12주 여정 마무리와 새로운 시작",
         description: "지난 12주간의 변화를 축하하고, 앞으로도 계속 실천할 수 있는 계획을 세웁니다.",
+        youtubeId: "FmD1lGgH-R8",
         practices: [
             {
                 day: 1,
