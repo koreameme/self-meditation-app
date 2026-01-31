@@ -4,39 +4,39 @@ function About() {
     return (
         <div className="about">
             <section className="section">
-                <div className="container" style={{ maxWidth: '900px' }}>
+                <div className="container" style={{ maxWidth: '900px', width: '100%' }}>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-center mb-xl">뇌과학으로 이해하는 명상</h1>
+                        <h1 className="text-center mb-xl" style={{ fontSize: 'clamp(1.8rem, 8vw, 2.5rem)' }}>뇌과학으로 이해하는 명상</h1>
 
                         {/* Brain Science Foundation */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-lg)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>🧠 편안전활: 핵심 원리</h2>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 1.8, marginBottom: 'var(--spacing-lg)' }}>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>🧠 편안전활: 핵심 원리</h2>
+                            <p style={{ fontSize: 'var(--font-size-base)', lineHeight: 1.6, marginBottom: 'var(--spacing-md)' }}>
                                 <strong className="text-gradient">편안전활</strong>은 <strong>편도체 안정화</strong>와 <strong>전전두피질 활성화</strong>를 결합한 용어입니다.
                                 이는 김주환 교수의 연구를 바탕으로 한 과학적 명상 접근법입니다.
                             </p>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--spacing-lg)' }}>
-                                <div>
-                                    <h3 style={{ color: 'var(--color-amygdala-stress)', marginBottom: 'var(--spacing-sm)' }}>편도체 (Amygdala)</h3>
-                                    <p style={{ color: 'var(--color-text-secondary)' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: 'var(--spacing-md)' }}>
+                                <div className="glass-strong" style={{ padding: 'var(--spacing-md)' }}>
+                                    <h3 style={{ color: 'var(--color-amygdala-stress)', marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-base)' }}>편도체 (Amygdala)</h3>
+                                    <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)', lineHeight: 1.5 }}>
                                         감정 중추로, 위협을 감지하고 스트레스 반응을 일으킵니다.
                                         과도하게 활성화되면 불안, 분노, 공포를 느낍니다.
                                     </p>
                                 </div>
 
-                                <div>
-                                    <h3 style={{ color: 'var(--color-mpfc-gold)', marginBottom: 'var(--spacing-sm)' }}>전전두피질 (mPFC)</h3>
-                                    <p style={{ color: 'var(--color-text-secondary)' }}>
+                                <div className="glass-strong" style={{ padding: 'var(--spacing-md)' }}>
+                                    <h3 style={{ color: 'var(--color-mpfc-gold)', marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-base)' }}>전전두피질 (mPFC)</h3>
+                                    <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)', lineHeight: 1.5 }}>
                                         이성과 통찰의 중추로, 감정을 조절하고 현명한 판단을 내립니다.
                                         활성화되면 평화롭고 명료한 상태가 됩니다.
                                     </p>
@@ -47,12 +47,12 @@ function About() {
                         {/* How It Works */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-lg)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>⚙️ 작동 원리</h2>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>⚙️ 작동 원리</h2>
 
                             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
                                 <h3 style={{ color: 'var(--color-mpfc-gold)', marginBottom: 'var(--spacing-sm)' }}>1. 신체 이완으로 편도체 안정화</h3>
@@ -90,23 +90,22 @@ function About() {
                         {/* Neural Plasticity */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-lg)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>🌱 신경 가소성 (Neuroplasticity)</h2>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 1.8, marginBottom: 'var(--spacing-md)' }}>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>🌱 신경 가소성</h2>
+                            <p style={{ fontSize: 'var(--font-size-base)', lineHeight: 1.6, marginBottom: 'var(--spacing-md)' }}>
                                 뇌는 평생 변화할 수 있습니다. 이를 <strong>신경 가소성</strong>이라고 합니다.
                             </p>
-                            <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.8, marginBottom: 'var(--spacing-md)' }}>
+                            <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-sm)' }}>
                                 반복적인 훈련을 통해 뇌의 신경망이 재배선됩니다.
                                 마치 근육을 키우듯, 마음의 근력도 훈련으로 강화할 수 있습니다.
                             </p>
                             <div className="glass-strong" style={{ padding: 'var(--spacing-md)', borderLeft: '4px solid var(--color-mpfc-gold)' }}>
-                                <p style={{ margin: 0, fontWeight: 'bold' }}>
+                                <p style={{ margin: 0, fontWeight: 'bold', fontSize: 'var(--font-size-sm)' }}>
                                     💡 최소 12주(84일)의 꾸준한 실천이 필요합니다.
-                                    이 기간 동안 새로운 신경 회로가 형성되고 강화됩니다.
                                 </p>
                             </div>
                         </motion.div>

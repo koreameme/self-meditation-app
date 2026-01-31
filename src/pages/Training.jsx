@@ -27,8 +27,8 @@ function Training({ completedDays }) {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1>12주 마음 근력 훈련</h1>
-                        <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-lg)' }}>
+                        <h1 style={{ fontSize: 'clamp(1.8rem, 8vw, 2.5rem)' }}>12주 마음 근력 훈련</h1>
+                        <p style={{ fontSize: 'var(--font-size-base)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-lg)' }}>
                             매일 10분, 당신의 뇌를 변화시키는 여정
                         </p>
 
@@ -58,13 +58,13 @@ function Training({ completedDays }) {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <h2 className="text-center mb-lg" style={{ color: 'var(--color-mpfc-gold)' }}>
+                        <h2 className="text-center mb-md" style={{ color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-xl)' }}>
                             1-4주차: 자기 조절력
                         </h2>
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                            gap: 'var(--spacing-lg)',
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+                            gap: 'var(--spacing-md)',
                             marginBottom: 'var(--spacing-2xl)'
                         }}>
                             {curriculum.slice(0, 4).map((week, index) => (
@@ -92,13 +92,13 @@ function Training({ completedDays }) {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-center mb-lg" style={{ color: 'var(--color-mpfc-gold)' }}>
+                        <h2 className="text-center mb-md" style={{ color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-xl)' }}>
                             5-8주차: 대인 관계력
                         </h2>
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                            gap: 'var(--spacing-lg)',
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+                            gap: 'var(--spacing-md)',
                             marginBottom: 'var(--spacing-2xl)'
                         }}>
                             {curriculum.slice(4, 8).map((week, index) => (
@@ -126,13 +126,13 @@ function Training({ completedDays }) {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-center mb-lg" style={{ color: 'var(--color-mpfc-gold)' }}>
+                        <h2 className="text-center mb-md" style={{ color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-xl)' }}>
                             9-12주차: 자기 동기력
                         </h2>
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                            gap: 'var(--spacing-lg)'
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+                            gap: 'var(--spacing-md)'
                         }}>
                             {curriculum.slice(8, 12).map((week, index) => (
                                 <RouterLink
@@ -185,23 +185,24 @@ function WeekCard({ week, isUnlocked, progress, delay }) {
             <div style={{
                 display: 'inline-block',
                 background: 'var(--gradient-primary)',
-                padding: '0.5rem 1rem',
+                padding: '0.4rem 0.8rem',
                 borderRadius: 'var(--radius-sm)',
                 marginBottom: 'var(--spacing-sm)',
                 fontWeight: 'bold',
-                color: 'var(--color-bg-primary)'
+                color: 'var(--color-bg-primary)',
+                fontSize: 'var(--font-size-xs)'
             }}>
                 Week {week.week}
             </div>
 
             {/* Title */}
-            <h3 style={{ marginBottom: 'var(--spacing-xs)' }}>{week.title}</h3>
-            <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-md)' }}>
+            <h3 style={{ marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-lg)' }}>{week.title}</h3>
+            <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-md)' }}>
                 {week.subtitle}
             </p>
 
             {/* Description */}
-            <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-md)' }}>
+            <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-sm)', lineHeight: 1.5 }}>
                 {week.description}
             </p>
 

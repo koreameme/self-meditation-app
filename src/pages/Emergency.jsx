@@ -142,9 +142,10 @@ function Emergency() {
                 : 'var(--gradient-bg)',
             transition: 'background 2s ease',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 'var(--spacing-xl)'
+            padding: 'var(--spacing-md)'
         }}>
             <div className="container" style={{ maxWidth: '800px' }}>
                 {!isActive ? (
@@ -154,16 +155,16 @@ function Emergency() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                     >
-                        <div style={{ fontSize: '5rem', marginBottom: 'var(--spacing-lg)' }}>🚨</div>
-                        <h1 style={{ marginBottom: 'var(--spacing-md)' }}>긴급 편도체 안정 모드</h1>
-                        <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-xl)' }}>
+                        <div style={{ fontSize: 'clamp(3rem, 15vw, 5rem)', marginBottom: 'var(--spacing-lg)' }}>🚨</div>
+                        <h1 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'clamp(1.5rem, 8vw, 2.5rem)' }}>긴급 편도체 안정 모드</h1>
+                        <p style={{ fontSize: 'var(--font-size-base)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-xl)', padding: '0 1rem' }}>
                             극심한 스트레스나 분노를 느낄 때 사용하세요.<br />
                             5분 안에 편도체를 진정시킵니다.
                         </p>
 
-                        <div className="glass" style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-xl)', textAlign: 'left' }}>
-                            <h3 style={{ marginBottom: 'var(--spacing-md)' }}>이럴 때 사용하세요:</h3>
-                            <ul style={{ color: 'var(--color-text-secondary)', lineHeight: 2 }}>
+                        <div className="glass" style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-xl)', textAlign: 'left' }}>
+                            <h3 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-lg)' }}>이럴 때 사용하세요:</h3>
+                            <ul style={{ color: 'var(--color-text-secondary)', lineHeight: 1.8, paddingLeft: '1.2rem', fontSize: 'var(--font-size-sm)' }}>
                                 <li>갑작스러운 분노나 화가 치밀어 오를 때</li>
                                 <li>극심한 불안이나 공황 증상이 있을 때</li>
                                 <li>스트레스로 호흡이 가빠지고 심장이 두근거릴 때</li>
@@ -174,7 +175,7 @@ function Emergency() {
                         <button
                             className="btn-emergency"
                             onClick={startEmergency}
-                            style={{ fontSize: 'var(--font-size-xl)', padding: 'var(--spacing-lg) var(--spacing-2xl)' }}
+                            style={{ fontSize: 'var(--font-size-lg)', padding: '1rem 2rem', width: '100%', maxWidth: '300px' }}
                         >
                             지금 시작하기
                         </button>
@@ -197,7 +198,7 @@ function Emergency() {
                         </div>
 
                         {/* Breathing Circle */}
-                        <div style={{ marginBottom: 'var(--spacing-xl)' }}>
+                        <div style={{ marginBottom: 'var(--spacing-xl)', position: 'relative' }}>
                             <motion.div
                                 animate={{
                                     scale: getBreathScale(),
@@ -208,8 +209,8 @@ function Emergency() {
                                     ease: 'easeInOut'
                                 }}
                                 style={{
-                                    width: '200px',
-                                    height: '200px',
+                                    width: 'clamp(150px, 40vw, 200px)',
+                                    height: 'clamp(150px, 40vw, 200px)',
                                     borderRadius: '50%',
                                     margin: '0 auto',
                                     display: 'flex',
@@ -219,11 +220,11 @@ function Emergency() {
                                     marginBottom: 'var(--spacing-lg)'
                                 }}
                             >
-                                <span style={{ fontSize: 'var(--font-size-xl)', fontWeight: 'bold', color: 'white' }}>
+                                <span style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: 'bold', color: 'white' }}>
                                     {breathPhase === 'inhale' ? '↑' : breathPhase === 'hold' ? '●' : '↓'}
                                 </span>
                             </motion.div>
-                            <div style={{ fontSize: 'var(--font-size-xl)', fontWeight: 'bold', color: 'white' }}>
+                            <div style={{ fontSize: 'clamp(1.2rem, 5vw, 1.5rem)', fontWeight: 'bold', color: 'white' }}>
                                 {getBreathText()}
                             </div>
                         </div>
@@ -237,15 +238,15 @@ function Emergency() {
                                 exit={{ opacity: 0, y: -20 }}
                                 className="glass-strong"
                                 style={{
-                                    padding: 'var(--spacing-xl)',
+                                    padding: 'var(--spacing-md)',
                                     marginBottom: 'var(--spacing-xl)',
-                                    minHeight: '120px',
+                                    minHeight: '100px',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}
                             >
-                                <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 1.8, color: 'white' }}>
+                                <p style={{ fontSize: 'var(--font-size-base)', lineHeight: 1.6, color: 'white', margin: 0 }}>
                                     {emergency.script[currentStep]?.text}
                                 </p>
                             </motion.div>

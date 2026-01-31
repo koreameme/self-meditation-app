@@ -59,10 +59,10 @@
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 3rem;
-  --font-size-4xl: 4rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
 }
 
 /* ==================== Reset & Base Styles ==================== */
@@ -126,11 +126,13 @@ p {
 }
 
 .section {
-  padding: var(--spacing-2xl) 0;
-  min-height: 100vh;
+  padding: var(--spacing-xl) 0;
+  min-height: calc(100vh - 80px);
+  /* Adjust for header/nav */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* ==================== Glassmorphism ==================== */
@@ -426,12 +428,23 @@ p {
   gap: var(--spacing-lg);
 }
 
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: flex !important;
+}
+
 /* ==================== Responsive Design ==================== */
 @media (max-width: 768px) {
   :root {
-    --font-size-4xl: 2.5rem;
-    --font-size-3xl: 2rem;
-    --font-size-2xl: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --font-size-4xl: 1.75rem;
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.25rem;
+    --font-size-xl: 1.125rem;
   }
 
   .container {
@@ -439,7 +452,37 @@ p {
   }
 
   .section {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0 80px 0;
+    /* Extra bottom padding for nav */
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .glass {
+    border-radius: var(--radius-md);
+  }
+
+  /* Mobile Button Optimization */
+  .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    width: 100%;
+    justify-content: center;
+    min-height: 56px;
+    /* Touch target size */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
   }
 }
 
@@ -469,6 +512,47 @@ p {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+/* ==================== Bottom Nav (Mobile) ==================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(10, 14, 39, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 10px;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.bottom-nav-item i {
+  font-size: 20px;
+}
+
+.bottom-nav-item.active {
+  color: var(--color-mpfc-gold);
+}
+
+.bottom-nav-item.active i {
+  transform: scale(1.1);
 }
 
 /* ==================== Scrollbar Styling ==================== */

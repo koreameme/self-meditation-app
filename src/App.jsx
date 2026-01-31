@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Training from './pages/Training';
@@ -56,22 +56,23 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Navigation */}
+        {/* Navigation - Top Header */}
         <nav className="glass" style={{
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: '1rem 2rem',
+          padding: '0.8rem 1.5rem',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          height: '60px'
         }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <h3 className="text-gradient" style={{ margin: 0 }}>self-명상</h3>
+          <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            <h3 className="text-gradient" style={{ margin: 0, fontSize: '1.25rem' }}>self-명상</h3>
           </Link>
-          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+          <div className="desktop-only" style={{ gap: '2rem', alignItems: 'center' }}>
             <Link to="/training" className="nav-link">12주 훈련</Link>
             <Link to="/practice" className="nav-link">오늘의 실천</Link>
             <Link to="/progress" className="nav-link">진행 상황</Link>
@@ -79,23 +80,48 @@ function App() {
           </div>
         </nav>
 
+        {/* Navigation - Bottom Tab Bar (Mobile Only) */}
+        <div className="bottom-nav mobile-only">
+          <NavLink to="/training" className={({ isActive }) => isActive ? 'bottom-nav-item active' : 'bottom-nav-item'}>
+            <span style={{ fontSize: '20px' }}>📅</span>
+            <span>12주 훈련</span>
+          </NavLink>
+          <NavLink to="/practice" className={({ isActive }) => isActive ? 'bottom-nav-item active' : 'bottom-nav-item'}>
+            <span style={{ fontSize: '20px' }}>🧘</span>
+            <span>오늘의 실천</span>
+          </NavLink>
+          <NavLink to="/progress" className={({ isActive }) => isActive ? 'bottom-nav-item active' : 'bottom-nav-item'}>
+            <span style={{ fontSize: '20px' }}>📊</span>
+            <span>진행 상황</span>
+          </NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'bottom-nav-item active' : 'bottom-nav-item'}>
+            <span style={{ fontSize: '20px' }}>🧠</span>
+            <span>소개</span>
+          </NavLink>
+        </div>
+
         {/* Emergency Button - Always Accessible */}
         {showEmergencyButton && (
           <Link to="/emergency" style={{
             position: 'fixed',
-            bottom: '2rem',
-            right: '2rem',
+            bottom: '85px', // Raised for mobile bottom nav
+            right: '1.5rem',
             zIndex: 999,
             textDecoration: 'none'
           }}>
-            <button className="btn-emergency">
+            <button className="btn-emergency" style={{
+              padding: '0.8rem 1.25rem',
+              fontSize: '0.9rem',
+              borderRadius: '999px',
+              whiteSpace: 'nowrap'
+            }}>
               🚨 긴급 진정
             </button>
           </Link>
         )}
 
         {/* Main Content */}
-        <div style={{ paddingTop: '80px' }}>
+        <div style={{ paddingTop: '60px' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/training" element={<Training completedDays={completedDays} />} />

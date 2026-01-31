@@ -10,7 +10,7 @@ function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
     return (
         <div className="progress-page">
             <section className="section">
-                <div className="container" style={{ maxWidth: '1000px' }}>
+                <div className="container" style={{ maxWidth: '1000px', width: '100%' }}>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -18,48 +18,53 @@ function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
                         <h1 className="text-center mb-xl">진행 상황</h1>
 
                         {/* Overall Stats */}
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--spacing-lg)', marginBottom: 'var(--spacing-2xl)' }}>
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                            gap: 'var(--spacing-md)',
+                            marginBottom: 'var(--spacing-2xl)'
+                        }}>
                             <motion.div
                                 className="glass-strong text-center"
-                                style={{ padding: 'var(--spacing-xl)' }}
-                                whileHover={{ scale: 1.05 }}
+                                style={{ padding: 'var(--spacing-lg)' }}
+                                whileHover={{ scale: 1.02 }}
                             >
-                                <div style={{ fontSize: '4rem', marginBottom: 'var(--spacing-md)' }}>📊</div>
-                                <h3 className="text-gradient" style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--spacing-sm)' }}>
+                                <div style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)' }}>📊</div>
+                                <h3 className="text-gradient" style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', marginBottom: 'var(--spacing-xs)' }}>
                                     {totalProgress}%
                                 </h3>
-                                <p style={{ color: 'var(--color-text-secondary)' }}>전체 진행률</p>
-                                <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginTop: 'var(--spacing-sm)' }}>
+                                <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)' }}>전체 진행률</p>
+                                <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)', marginTop: 'var(--spacing-sm)' }}>
                                     {completedDays.length} / 84일 완료
                                 </p>
                             </motion.div>
 
                             <motion.div
                                 className="glass-strong text-center"
-                                style={{ padding: 'var(--spacing-xl)' }}
-                                whileHover={{ scale: 1.05 }}
+                                style={{ padding: 'var(--spacing-lg)' }}
+                                whileHover={{ scale: 1.02 }}
                             >
-                                <div style={{ fontSize: '4rem', marginBottom: 'var(--spacing-md)' }}>🔥</div>
-                                <h3 className="text-gradient" style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--spacing-sm)' }}>
+                                <div style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)' }}>🔥</div>
+                                <h3 className="text-gradient" style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', marginBottom: 'var(--spacing-xs)' }}>
                                     {streak}일
                                 </h3>
-                                <p style={{ color: 'var(--color-text-secondary)' }}>연속 실천</p>
-                                <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginTop: 'var(--spacing-sm)' }}>
+                                <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)' }}>연속 실천</p>
+                                <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)', marginTop: 'var(--spacing-sm)' }}>
                                     {streak >= 7 ? '훌륭합니다! 🎉' : '계속 이어가세요!'}
                                 </p>
                             </motion.div>
 
                             <motion.div
                                 className="glass-strong text-center"
-                                style={{ padding: 'var(--spacing-xl)' }}
-                                whileHover={{ scale: 1.05 }}
+                                style={{ padding: 'var(--spacing-lg)' }}
+                                whileHover={{ scale: 1.02 }}
                             >
-                                <div style={{ fontSize: '4rem', marginBottom: 'var(--spacing-md)' }}>🧠</div>
-                                <h3 className="text-gradient" style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--spacing-sm)' }}>
+                                <div style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)' }}>🧠</div>
+                                <h3 className="text-gradient" style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', marginBottom: 'var(--spacing-xs)' }}>
                                     {Math.floor(completedDays.length / 7)}주
                                 </h3>
-                                <p style={{ color: 'var(--color-text-secondary)' }}>완료한 주차</p>
-                                <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginTop: 'var(--spacing-sm)' }}>
+                                <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)' }}>완료한 주차</p>
+                                <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)', marginTop: 'var(--spacing-sm)' }}>
                                     신경 가소성 진행 중
                                 </p>
                             </motion.div>
@@ -68,62 +73,68 @@ function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
                         {/* Neural Plasticity Progress */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-2xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-2xl)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>🌱 신경 가소성 진행도</h2>
-                            <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-lg)' }}>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>🌱 신경 가소성 진행도</h2>
+                            <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-lg)', fontSize: 'var(--font-size-sm)' }}>
                                 뇌의 신경망이 변화하는 데는 최소 12주(84일)가 필요합니다.
                                 꾸준한 실천으로 편도체는 안정되고 전전두피질은 활성화됩니다.
                             </p>
 
-                            <div className="progress-bar" style={{ height: '20px', marginBottom: 'var(--spacing-md)' }}>
+                            <div className="progress-bar" style={{ height: '16px', marginBottom: 'var(--spacing-md)' }}>
                                 <div className="progress-fill" style={{ width: `${totalProgress}%` }}></div>
                             </div>
 
-                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(4, 1fr)',
+                                textAlign: 'center',
+                                gap: '4px',
+                                fontSize: '10px',
+                                color: 'var(--color-text-muted)'
+                            }}>
                                 <span>시작</span>
-                                <span>4주 (초기 변화)</span>
-                                <span>8주 (습관 형성)</span>
-                                <span>12주 (완전 정착)</span>
+                                <span>4주</span>
+                                <span>8주</span>
+                                <span>12주</span>
                             </div>
                         </motion.div>
 
                         {/* Weekly Breakdown */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-2xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-2xl)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>주차별 완료 현황</h2>
-                            <div style={{ display: 'grid', gap: 'var(--spacing-md)' }}>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>주차별 완료 현황</h2>
+                            <div style={{ display: 'grid', gap: 'var(--spacing-sm)' }}>
                                 {weeklyStats.map((week, index) => (
                                     <div key={index} style={{
                                         display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 'var(--spacing-md)',
-                                        padding: 'var(--spacing-md)',
-                                        background: 'rgba(255, 255, 255, 0.03)',
-                                        borderRadius: 'var(--radius-sm)'
-                                    }}>
-                                        <div style={{ minWidth: '80px', fontWeight: 'bold' }}>
+                                    < div key={index} style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: 'var(--spacing-sm)',
+                                            padding: '12px',
+                                            background: 'rgba(255, 255, 255, 0.03)',
+                                            borderRadius: 'var(--radius-sm)'
+                                        }}>
+                                        <div style={{ minWidth: '60px', fontWeight: 'bold', fontSize: '11px' }}>
                                             Week {week.week}
                                         </div>
                                         <div style={{ flex: 1 }}>
-                                            <div className="progress-bar" style={{ height: '12px' }}>
+                                            <div className="progress-bar" style={{ height: '8px' }}>
                                                 <div className="progress-fill" style={{ width: `${week.percentage}%` }}></div>
                                             </div>
                                         </div>
-                                        <div style={{ minWidth: '80px', textAlign: 'right', color: 'var(--color-text-muted)' }}>
-                                            {week.completed} / 7일
+                                        <div style={{ minWidth: '50px', textAlign: 'right', color: 'var(--color-text-muted)', fontSize: '11px' }}>
+                                            {week.completed}/7
                                         </div>
-                                        {week.percentage === 100 && (
-                                            <span style={{ fontSize: '1.5rem' }}>✅</span>
-                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -132,13 +143,13 @@ function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
                         {/* Achievements */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-2xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-2xl)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>🏆 성취 배지</h2>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 'var(--spacing-md)' }}>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>🏆 성취 배지</h2>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: 'var(--spacing-sm)' }}>
                                 <AchievementBadge
                                     icon="🌟"
                                     title="첫 걸음"
@@ -181,12 +192,12 @@ function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
                         {/* Diary History Section */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', marginBottom: 'var(--spacing-2xl)' }}
+                            style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-2xl)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h2 style={{ marginBottom: 'var(--spacing-lg)' }}>📝 나의 수련 일기 기록</h2>
+                            <h2 style={{ marginBottom: 'var(--spacing-md)', fontSize: 'var(--font-size-xl)' }}>📝 나의 수련 일기</h2>
                             {Object.keys(diaries).length === 0 ? (
                                 <p style={{ color: 'var(--color-text-muted)', textAlign: 'center', padding: 'var(--spacing-xl)' }}>
                                     아직 작성된 일기가 없습니다. 오늘의 실천을 완료하고 첫 일기를 써보세요!
@@ -215,12 +226,12 @@ function Progress({ completedDays, diaries, saveDiary, resetProgress }) {
                         {/* Settings / Reset Section */}
                         <motion.div
                             className="glass"
-                            style={{ padding: 'var(--spacing-xl)', border: '1px solid rgba(255, 59, 48, 0.2)' }}
+                            style={{ padding: 'var(--spacing-lg)', border: '1px solid rgba(255, 59, 48, 0.2)' }}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h3 style={{ color: '#ff3b30', marginBottom: 'var(--spacing-md)' }}>⚠️ 데이터 관리</h3>
+                            <h3 style={{ color: '#ff3b30', marginBottom: 'var(--spacing-sm)', fontSize: 'var(--font-size-base)' }}>⚠️ 데이터 관리</h3>
                             <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-lg)' }}>
                                 모든 수련 데이터와 일기 기록을 영구적으로 삭제하고 초기화합니다.
                             </p>
@@ -286,7 +297,7 @@ function DiaryEntryCard({ dayId, entry, onSave }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-md)' }}>
                 <h4 style={{ color: 'var(--color-primary)', margin: 0 }}>Week {week}, Day {day} 수련 일기</h4>
                 {!isEditing && (
-                    <button className="btn-outline" style={{ padding: '4px 12px', fontSize: 'var(--font-size-xs)' }} onClick={() => setIsEditing(true)}>
+                    <button className="btn-outline" style={{ padding: '8px 16px', fontSize: 'var(--font-size-sm)' }} onClick={() => setIsEditing(true)}>
                         수정하기
                     </button>
                 )}
@@ -319,8 +330,8 @@ function DiaryEntryCard({ dayId, entry, onSave }) {
                         />
                     </div>
                     <div style={{ display: 'flex', gap: 'var(--spacing-sm)', marginTop: 'var(--spacing-sm)' }}>
-                        <button className="btn-primary" style={{ padding: '6px 16px', fontSize: 'var(--font-size-sm)' }} onClick={handleSave}>저장</button>
-                        <button className="btn-outline" style={{ padding: '6px 16px', fontSize: 'var(--font-size-sm)' }} onClick={() => { setIsEditing(false); setEditEntry(entry); }}>취소</button>
+                        <button className="btn-primary" style={{ padding: '8px 20px', fontSize: 'var(--font-size-sm)' }} onClick={handleSave}>저장</button>
+                        <button className="btn-outline" style={{ padding: '8px 20px', fontSize: 'var(--font-size-sm)' }} onClick={() => { setIsEditing(false); setEditEntry(entry); }}>취소</button>
                     </div>
                 </div>
             ) : (

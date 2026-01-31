@@ -16,24 +16,33 @@ function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 style={{ fontSize: 'var(--font-size-4xl)', marginBottom: 'var(--spacing-md)' }}>
+                        <h1 style={{ fontSize: 'clamp(2.5rem, 10vw, var(--font-size-4xl))', marginBottom: 'var(--spacing-md)' }}>
                             self-명상
                         </h1>
-                        <p style={{ fontSize: 'var(--font-size-xl)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
+                        <p style={{ fontSize: 'clamp(1.1rem, 5vw, var(--font-size-xl))', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
                             뇌과학 기반 마음 근력 훈련
                         </p>
-                        <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-xl)' }}>
-                            편도체 안정화 × 전전두피질 활성화 (편안전활)
+                        <p style={{ fontSize: 'clamp(0.9rem, 4vw, var(--font-size-lg))', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-xl)' }}>
+                            편도체 안정화 × 전전두피질 활성화
                         </p>
 
-                        <div style={{ display: 'flex', gap: 'var(--spacing-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link to="/training">
-                                <button className="btn-primary" style={{ fontSize: 'var(--font-size-lg)', padding: 'var(--spacing-md) var(--spacing-xl)' }}>
+                        <div style={{
+                            display: 'flex',
+                            gap: 'var(--spacing-md)',
+                            justifyContent: 'center',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            width: '100%',
+                            maxWidth: '400px',
+                            margin: '0 auto'
+                        }} className="home-cta">
+                            <Link to="/training" style={{ width: '100%' }}>
+                                <button className="btn-primary" style={{ width: '100%' }}>
                                     12주 훈련 시작하기
                                 </button>
                             </Link>
-                            <Link to="/about">
-                                <button className="btn-outline" style={{ fontSize: 'var(--font-size-lg)', padding: 'var(--spacing-md) var(--spacing-xl)' }}>
+                            <Link to="/about" style={{ width: '100%' }}>
+                                <button className="btn-outline" style={{ width: '100%' }}>
                                     뇌과학 원리 알아보기
                                 </button>
                             </Link>
@@ -45,15 +54,15 @@ function Home() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
-                        style={{ marginTop: 'var(--spacing-2xl)' }}
+                        style={{ marginTop: 'var(--spacing-xl)' }}
                         className="animate-float"
                     >
                         <img
                             src="/assets/images/brain-balance.png"
                             alt="Brain Balance Visualization"
                             style={{
-                                maxWidth: '600px',
-                                width: '100%',
+                                maxWidth: '500px',
+                                width: '90%',
                                 borderRadius: 'var(--radius-xl)',
                                 boxShadow: 'var(--shadow-glow)'
                             }}
@@ -76,20 +85,20 @@ function Home() {
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: 'var(--spacing-lg)'
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+                        gap: 'var(--spacing-md)'
                     }}>
                         <motion.div
                             className="card"
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.02 }}
                         >
-                            <h3 style={{ color: 'var(--color-mpfc-gold)' }}>🧘 자기 조절력</h3>
-                            <p>감정을 인식하고 조절하는 능력. 편도체를 안정시키고 충동적 반응을 억제합니다.</p>
-                            <ul style={{ marginTop: 'var(--spacing-md)', color: 'var(--color-text-secondary)' }}>
+                            <h3 style={{ color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-lg)' }}>🧘 자기 조절력</h3>
+                            <p style={{ fontSize: 'var(--font-size-sm)' }}>감정을 인식하고 조절하는 능력. 편도체를 안정시키고 충동적 반응을 억제합니다.</p>
+                            <ul style={{ marginTop: 'var(--spacing-md)', color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)', paddingLeft: '1.2rem' }}>
                                 <li>신체 이완 기법</li>
                                 <li>호흡 조절 (사띠)</li>
                                 <li>감정 관찰 명상</li>
@@ -98,15 +107,15 @@ function Home() {
 
                         <motion.div
                             className="card"
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.02 }}
                         >
-                            <h3 style={{ color: 'var(--color-mpfc-gold)' }}>💞 대인 관계력</h3>
-                            <p>자기 연민과 타인 공감 능력. 건강한 관계를 맺고 유지하는 힘입니다.</p>
-                            <ul style={{ marginTop: 'var(--spacing-md)', color: 'var(--color-text-secondary)' }}>
+                            <h3 style={{ color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-lg)' }}>💞 대인 관계력</h3>
+                            <p style={{ fontSize: 'var(--font-size-sm)' }}>자기 연민과 타인 공감 능력. 건강한 관계를 맺고 유지하는 힘입니다.</p>
+                            <ul style={{ marginTop: 'var(--spacing-md)', color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)', paddingLeft: '1.2rem' }}>
                                 <li>자기 연민 명상</li>
                                 <li>오렌지 나뭇가지 비유</li>
                                 <li>용서와 화해</li>
@@ -115,15 +124,15 @@ function Home() {
 
                         <motion.div
                             className="card"
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.02 }}
                         >
-                            <h3 style={{ color: 'var(--color-mpfc-gold)' }}>🚀 자기 동기력</h3>
-                            <p>역경을 극복하고 성장하는 회복탄력성. 목적을 향해 나아가는 힘입니다.</p>
-                            <ul style={{ marginTop: 'var(--spacing-md)', color: 'var(--color-text-secondary)' }}>
+                            <h3 style={{ color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-lg)' }}>🚀 자기 동기력</h3>
+                            <p style={{ fontSize: 'var(--font-size-sm)' }}>역경을 극복하고 성장하는 회복탄력성. 목적을 향해 나아가는 힘입니다.</p>
+                            <ul style={{ marginTop: 'var(--spacing-md)', color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)', paddingLeft: '1.2rem' }}>
                                 <li>회복탄력성 훈련</li>
                                 <li>성장 마인드셋</li>
                                 <li>목적과 의미 찾기</li>
@@ -234,13 +243,13 @@ function Home() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="mb-md">오늘부터 시작하세요</h2>
-                        <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-xl)' }}>
+                        <h2 className="mb-md" style={{ fontSize: 'var(--font-size-2xl)' }}>오늘부터 시작하세요</h2>
+                        <p style={{ fontSize: 'var(--font-size-base)', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-xl)' }}>
                             매일 10분, 12주 동안 당신의 뇌를 변화시킬 수 있습니다.
                         </p>
-                        <Link to="/training">
-                            <button className="btn-primary" style={{ fontSize: 'var(--font-size-xl)', padding: 'var(--spacing-lg) var(--spacing-2xl)' }}>
-                                12주 여정 시작하기 →
+                        <Link to="/training" style={{ width: '100%', maxWidth: '300px', display: 'inline-block' }}>
+                            <button className="btn-primary" style={{ width: '100%' }}>
+                                여정 시작하기 →
                             </button>
                         </Link>
                     </motion.div>

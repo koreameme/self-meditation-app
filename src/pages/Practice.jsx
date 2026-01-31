@@ -315,8 +315,8 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
 
     return (
         <div className="practice">
-            <section className="section" style={{ minHeight: '100vh' }}>
-                <div className="container" style={{ maxWidth: '1000px' }}>
+            <section className="section">
+                <div className="container" style={{ maxWidth: '1000px', width: '100%' }}>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -324,10 +324,14 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
                         <h1 className="text-center mb-lg">오늘의 실천</h1>
 
                         {/* Week & Day Selector */}
-                        <div className="glass" style={{ padding: 'var(--spacing-lg)', marginBottom: 'var(--spacing-xl)' }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-md)' }}>
+                        <div className="glass" style={{ padding: 'var(--spacing-md)', marginBottom: 'var(--spacing-lg)' }}>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                gap: 'var(--spacing-sm)'
+                            }}>
                                 <div>
-                                    <label style={{ display: 'block', marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-sm)' }}>
+                                    <label style={{ display: 'block', marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>
                                         주차 선택
                                     </label>
                                     <select
@@ -340,10 +344,10 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
                                             width: '100%',
                                             padding: 'var(--spacing-sm)',
                                             borderRadius: 'var(--radius-sm)',
-                                            background: 'rgba(255, 255, 255, 0.1)',
-                                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                                            background: 'rgba(255, 255, 255, 0.05)',
+                                            border: '1px solid rgba(255, 255, 255, 0.1)',
                                             color: 'var(--color-text-primary)',
-                                            fontSize: 'var(--font-size-base)'
+                                            fontSize: 'var(--font-size-sm)'
                                         }}
                                     >
                                         {curriculum.map(week => (
@@ -355,7 +359,7 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
                                 </div>
 
                                 <div>
-                                    <label style={{ display: 'block', marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-sm)' }}>
+                                    <label style={{ display: 'block', marginBottom: 'var(--spacing-xs)', fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>
                                         일차 선택
                                     </label>
                                     <select
@@ -365,10 +369,10 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
                                             width: '100%',
                                             padding: 'var(--spacing-sm)',
                                             borderRadius: 'var(--radius-sm)',
-                                            background: 'rgba(255, 255, 255, 0.1)',
-                                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                                            background: 'rgba(255, 255, 255, 0.05)',
+                                            border: '1px solid rgba(255, 255, 255, 0.1)',
                                             color: 'var(--color-text-primary)',
-                                            fontSize: 'var(--font-size-base)'
+                                            fontSize: 'var(--font-size-sm)'
                                         }}
                                     >
                                         {[1, 2, 3, 4, 5, 6, 7].map(day => (
@@ -454,21 +458,21 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
                                         marginBottom: 'var(--spacing-xl)',
                                         border: '1px solid rgba(255, 255, 255, 0.05)'
                                     }}>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-lg)' }}>
-                                            <h3 style={{ margin: 0, color: 'var(--color-mpfc-gold)' }}>📜 오늘의 명상 가이드</h3>
-                                            <div style={{ display: 'flex', gap: 'var(--spacing-sm)', alignItems: 'center' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 'var(--spacing-md)', marginBottom: 'var(--spacing-lg)' }}>
+                                            <h3 style={{ margin: 0, color: 'var(--color-mpfc-gold)', fontSize: 'var(--font-size-lg)' }}>📜 명상 가이드</h3>
+                                            <div style={{ display: 'flex', gap: 'var(--spacing-sm)', alignItems: 'center', flexWrap: 'wrap' }}>
                                                 {ttsLoading && (
-                                                    <span style={{ fontSize: '12px', color: 'var(--color-mpfc-gold)', animation: 'pulse 1.5s infinite' }}>
-                                                        ⌛ 음성 불러오는 중...
+                                                    <span style={{ fontSize: '11px', color: 'var(--color-mpfc-gold)', animation: 'pulse 1.5s infinite' }}>
+                                                        불러오는 중...
                                                     </span>
                                                 )}
                                                 {isSpeaking ? (
-                                                    <button className="btn-outline" onClick={stopSpeaking} style={{ padding: '0.5rem 1rem', fontSize: 'var(--font-size-sm)' }}>
-                                                        ⏹️ 음성 중지
+                                                    <button className="btn-outline" onClick={stopSpeaking} style={{ padding: '0.4rem 0.8rem', fontSize: 'var(--font-size-xs)' }}>
+                                                        ⏹️ 중지
                                                     </button>
                                                 ) : (
-                                                    <button className="btn-primary" onClick={speakGuide} style={{ padding: '0.5rem 1rem', fontSize: 'var(--font-size-sm)' }}>
-                                                        🔊 음성 가이드 읽어주기
+                                                    <button className="btn-primary" onClick={speakGuide} style={{ padding: '0.4rem 0.8rem', fontSize: 'var(--font-size-xs)' }}>
+                                                        🔊 읽어주기
                                                     </button>
                                                 )}
                                             </div>
@@ -641,12 +645,13 @@ function Practice({ completeDay, completedDays, diaries, saveDiary }) {
                                             background: 'rgba(255, 255, 255, 0.05)',
                                             border: '2px solid var(--color-primary)'
                                         }}>
-                                            <div style={{
-                                                fontSize: '4rem',
+                                            <div className="timer-display" style={{
+                                                fontSize: 'clamp(3rem, 15vw, 5rem)',
                                                 fontWeight: 'bold',
                                                 fontFamily: 'monospace',
                                                 color: 'var(--color-primary)',
-                                                marginBottom: 'var(--spacing-md)'
+                                                marginBottom: 'var(--spacing-md)',
+                                                lineHeight: 1
                                             }}>
                                                 {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
                                             </div>
