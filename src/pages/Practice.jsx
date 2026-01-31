@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { curriculum } from '../data/curriculum';
 import { meditations } from '../data/meditations';
 
 function Practice({ completeDay, completedDays }) {
+    const location = useLocation();
     const [selectedWeek, setSelectedWeek] = useState(1);
     const [selectedDay, setSelectedDay] = useState(1);
     const [showDiary, setShowDiary] = useState(false);
     const [diaryEntry, setDiaryEntry] = useState({ plan: '', do: '', see: '' });
+
+    useEffect(() => {
+        if (location.state && location.state.week) {
+            setSelectedWeek(location.state.week);
+            setSelectedDay(1);
+        }
+    }, [location.state]);
 
     const currentWeek = curriculum.find(w => w.week === selectedWeek);
     const currentPractice = currentWeek?.practices[selectedDay - 1];

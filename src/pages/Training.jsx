@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { curriculum, calculateProgress } from '../data/curriculum';
 
 function Training({ completedDays }) {
+    const navigate = useNavigate();
     const progress = calculateProgress(completedDays.length);
 
     const isWeekUnlocked = (weekNumber) => {
@@ -9,6 +11,12 @@ function Training({ completedDays }) {
         // Check if previous week is completed (all 7 days)
         const previousWeekDays = completedDays.filter(day => day.startsWith(`${weekNumber - 1}-`));
         return previousWeekDays.length >= 7;
+    };
+
+    const handleWeekClick = (weekNumber) => {
+        if (isWeekUnlocked(weekNumber)) {
+            navigate('/practice', { state: { week: weekNumber } });
+        }
     };
 
     const getWeekProgress = (weekNumber) => {
@@ -124,6 +132,7 @@ function Training({ completedDays }) {
                                     week={week}
                                     isUnlocked={isWeekUnlocked(week.week)}
                                     progress={getWeekProgress(week.week)}
+                                    onClick={() => handleWeekClick(week.week)}
                                     delay={index * 0.1}
                                 />
                             ))}
@@ -135,7 +144,7 @@ function Training({ completedDays }) {
     );
 }
 
-function WeekCard({ week, isUnlocked, progress, delay }) {
+function WeekCard({ week, isUnlocked, progress, onClick, delay }) {
     return (
         <motion.div
             className={`card ${!isUnlocked ? 'card-locked' : ''} ${progress > 0 && progress < 100 ? 'card-active' : ''}`}
@@ -144,6 +153,7 @@ function WeekCard({ week, isUnlocked, progress, delay }) {
             viewport={{ once: true }}
             transition={{ delay }}
             whileHover={isUnlocked ? { y: -10 } : {}}
+            onClick={onClick}
             style={{ position: 'relative', cursor: isUnlocked ? 'pointer' : 'not-allowed' }}
         >
             {/* Lock Icon */}
