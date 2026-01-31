@@ -149,9 +149,9 @@ function Practice({ completeDay, completedDays }) {
 
                                 {/* Action Buttons */}
                                 <div style={{ display: 'flex', gap: 'var(--spacing-md)', flexWrap: 'wrap' }}>
-                                    {currentWeek?.youtubeId && (
+                                    {currentPractice?.youtubeId && (
                                         <a
-                                            href={`https://www.youtube.com/watch?v=${currentWeek.youtubeId}`}
+                                            href={`https://www.youtube.com/watch?v=${currentPractice.youtubeId}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="btn-secondary"
@@ -164,7 +164,7 @@ function Practice({ completeDay, completedDays }) {
                                                 color: 'white'
                                             }}
                                         >
-                                            📺 관련 영상 보기
+                                            📺 오늘의 가이드 영상
                                         </a>
                                     )}
                                     {!isCompleted && (
